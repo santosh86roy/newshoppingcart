@@ -117,7 +117,7 @@ const Cart = () => {
         )}
       </div>
       {cartItems?.length > 0 ? (
-        <div className="flex justify-evenly bg-indigo-50 w-[calc(100vw-232px)] h-24 fixed bottom-0 right-0 px-12 py-8">
+        <div className="flex justify-evenly items-center bg-indigo-50 w-full md:w-[calc(100vw-232px)] h-24 fixed bottom-0 right-0 md:px-12 px-1 md:py-8 py-1">
           <div>
             <span className="text-xl font-semibold">
               Order Total :
