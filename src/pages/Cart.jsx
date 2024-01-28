@@ -1,4 +1,6 @@
 import React from "react";
+import { MdDelete } from "react-icons/md";
+import { IoCart } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import {
   removeFromCart,
@@ -74,7 +76,7 @@ const Cart = () => {
                         className="bg-neutral-200 inline-flex items-center justify-center disabled:opacity-75 rounded-l"
                       >
                         <span className="material-symbols-outlined text-sm px-1">
-                          remove
+                          <MdDelete />
                         </span>
                       </button>
                       <span className="text-sm font-medium">{product.qty}</span>
@@ -83,7 +85,7 @@ const Cart = () => {
                         className="bg-neutral-200 inline-flex items-center justify-center rounded-r"
                       >
                         <span className="material-symbols-outlined text-sm px-1">
-                          add
+                          <IoCart />
                         </span>
                       </button>
                     </div>
@@ -93,7 +95,7 @@ const Cart = () => {
                     onClick={() => handleRemoveFromCart(product.id)}
                     className="ml-4 self-start text-sm"
                   >
-                    Remove
+                    <MdDelete />
                   </button>
                 </li>
               ))}
@@ -123,7 +125,7 @@ const Cart = () => {
           <div>
             <Link to="/buy">
               <button className="px-4 py-2 bg-indigo-500 text-white font-semibold text-xl rounded">
-                Buy Now
+                <IoCart />
               </button>
             </Link>
           </div>

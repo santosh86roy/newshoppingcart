@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Popup from "reactjs-popup";
+import { IoCart } from "react-icons/io5";
+import { MdDelete } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import {
   removeFromCart,
@@ -43,7 +45,12 @@ export default function Header() {
       </Link>
       {/* <Link to="/cart">My Cart ({cartItemsLength})</Link> */}
       <Popup
-        trigger={<button> My Cart ({cartItemsLength})</button>}
+        trigger={
+          <button className="flex items-center gap-2">
+            {" "}
+            <IoCart /> ({cartItemsLength})
+          </button>
+        }
         modal
         nested
       >
@@ -66,7 +73,10 @@ export default function Header() {
                   </Link>
                 </div>
                 {cartItems.map((product, index) => (
-                  <li key={index} className="flex my-8 first:mt-4">
+                  <li
+                    key={index}
+                    className="flex md:my-8 my-0 justify-between first:mt-4"
+                  >
                     <img
                       src={product.imageUrl}
                       alt="product_image"
@@ -86,7 +96,7 @@ export default function Header() {
                           className="bg-neutral-200 inline-flex items-center justify-center disabled:opacity-75 rounded-l"
                         >
                           <span className="material-symbols-outlined text-sm px-1">
-                            remove
+                            <MdDelete />
                           </span>
                         </button>
                         <span className="text-sm font-medium">
@@ -109,7 +119,7 @@ export default function Header() {
                       onClick={() => handleRemoveFromCart(product.id)}
                       className="ml-4 self-start text-xs"
                     >
-                      Remove
+                      <MdDelete />
                     </button>
                   </li>
                 ))}

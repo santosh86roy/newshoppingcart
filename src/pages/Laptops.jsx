@@ -65,7 +65,7 @@ export default function Laptops() {
 
   return (
     <>
-      <div className="px-8 py-6">
+      <div className="md:px-8 md:py-6 px-0 py-0">
         <div className="flex justify-end">
           <label htmlFor="dropdown" className="font-medium">
             Sort By
@@ -79,7 +79,7 @@ export default function Laptops() {
             <option value="desc">Price High to Low</option>
           </select>
         </div>
-        <div className="grid grid-cols-3">
+        <div className="grid md:grid-cols-3 grid-cols-1">
           {products.map((product) => {
             return (
               <div className="p-4" key={product.id}>
