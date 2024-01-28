@@ -73,10 +73,7 @@ export default function Header() {
                   </Link>
                 </div>
                 {cartItems.map((product, index) => (
-                  <li
-                    key={index}
-                    className="flex md:my-8 my-0 justify-between first:mt-4"
-                  >
+                  <li key={index} className="flex md:my-8 my-0 first:mt-4">
                     <img
                       src={product.imageUrl}
                       alt="product_image"
@@ -96,7 +93,7 @@ export default function Header() {
                           className="bg-neutral-200 inline-flex items-center justify-center disabled:opacity-75 rounded-l"
                         >
                           <span className="material-symbols-outlined text-sm px-1">
-                            <MdDelete />
+                            remove
                           </span>
                         </button>
                         <span className="text-sm font-medium">
