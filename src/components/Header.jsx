@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Popup from "reactjs-popup";
 import { IoCart } from "react-icons/io5";
 import { MdDelete } from "react-icons/md";
+
 import { useDispatch, useSelector } from "react-redux";
 import {
   removeFromCart,

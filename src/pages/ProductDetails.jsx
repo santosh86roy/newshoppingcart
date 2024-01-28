@@ -2,6 +2,8 @@ import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, removeFromCart } from "../reducers/cart.reducer";
+import { MdDelete } from "react-icons/md";
+import { IoCart } from "react-icons/io5";
 import toast from "react-hot-toast";
 
 export default function ProductDetails() {
@@ -39,7 +41,7 @@ export default function ProductDetails() {
 
   return (
     <>
-      <div className="md:px-12 px-0 md:py-6 py-0">
+      <div className="md:px-12 px-1 md:py-6 py-1">
         <div className="f md:flex flex-col items-center">
           <img
             src={product.imageUrl}
@@ -51,33 +53,34 @@ export default function ProductDetails() {
               {product?.name}
             </span>
             <span className="text-neutral-500">{product?.description}</span>
-            <span className="md:text-4xl text-2xl font-bold">
-              ₹ {product?.price}
-            </span>
-            <div className="flex flex-col">
-              {!cartItems.some((item) => item.id === product.id) ? (
-                <button
-                  onClick={() => handleAddToCart(product)}
-                  className="w-fit mt-4"
-                >
-                  Add to Cart
-                </button>
-              ) : (
-                <button
-                  onClick={() => handleRemoveFromCart(product.id)}
-                  className="w-fit mt-4"
-                >
-                  Remove from Cart
-                </button>
-              )}
-
-              <button
-                onClick={() => handleBuyNow(product)}
-                className="bg-indigo-500 text-white w-fit mt-4 px-6 py-2 text-xl font-semibold rounded"
-              >
-                Buy Now
-              </button>
+            <div className="buttons flex justify-between items-center">
+              <span className="md:text-4xl text-2xl font-bold">
+                ₹ {product?.price}
+              </span>
+              <div className="flex flex-col">
+                {!cartItems.some((item) => item.id === product.id) ? (
+                  <button
+                    onClick={() => handleAddToCart(product)}
+                    className="w-fit mt-0"
+                  >
+                    <IoCart />
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => handleRemoveFromCart(product.id)}
+                    className="w-fit mt-0"
+                  >
+                    <MdDelete />
+                  </button>
+                )}
+              </div>
             </div>
+            <button
+              onClick={() => handleBuyNow(product)}
+              className="bg-indigo-500 text-white w-fit mt-4 px-6 py-2 text-xl font-semibold rounded"
+            >
+              Buy Now
+            </button>
           </div>
         </div>
       </div>

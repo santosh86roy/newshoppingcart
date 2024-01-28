@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Product from "../components/Product";
 import { Images } from "../Constants/imageConstant";
 import { orderBy } from "lodash";
+import { FaFilter } from "react-icons/fa";
 
 export default function Tablets() {
   const [products, setProducts] = useState([
@@ -60,9 +61,9 @@ export default function Tablets() {
   return (
     <>
       <div className="md:px-8 md:py-6 px-0 py-0">
-        <div className="flex justify-end">
+        <div className="flex justify-between items-center px-2">
           <label htmlFor="dropdown" className="font-medium">
-            Sort By
+            <FaFilter />
           </label>
           <select
             id="dropdown"

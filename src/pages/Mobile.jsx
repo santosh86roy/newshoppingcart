@@ -2,11 +2,20 @@ import React, { useState } from "react";
 import Product from "../components/Product";
 import { Images } from "../Constants/imageConstant";
 import { orderBy } from "lodash";
+import { FaFilter } from "react-icons/fa";
 
 export default function Mobiles() {
   const [products, setProducts] = useState([
     {
       id: 1,
+      name: "Xiaomi mobile",
+      imageUrl: Images.mobiles,
+      description: "Xiaomi Pad 6| Qualcomm Snapdragon 870|",
+      price: 55459,
+      qty: 1,
+    },
+    {
+      id: 2,
       name: "Apple iPhone 14",
       imageUrl: Images.mobiles,
       description: "Apple iPhone 14 (128 GB) - Blue",
@@ -14,7 +23,7 @@ export default function Mobiles() {
       qty: 1,
     },
     {
-      id: 2,
+      id: 3,
       name: "Apple iPhone 11",
       imageUrl: Images.mobiles,
       description: "Apple iPhone 11 (64GB) - White",
@@ -22,7 +31,7 @@ export default function Mobiles() {
       qty: 1,
     },
     {
-      id: 3,
+      id: 4,
       name: "Apple iPhone 13",
       imageUrl: Images.mobiles,
       description: "Apple iPhone 13 (128GB) - Blue",
@@ -30,7 +39,7 @@ export default function Mobiles() {
       qty: 1,
     },
     {
-      id: 4,
+      id: 5,
       name: "Apple iPhone 15",
       imageUrl: Images.mobiles,
       description: "Apple iPhone 15 (128GB) - Black",
@@ -57,9 +66,9 @@ export default function Mobiles() {
   return (
     <>
       <div className="md:px-8 md:py-6 px-0 py-0">
-        <div className="flex justify-end">
+        <div className="flex justify-between items-center px-2">
           <label htmlFor="dropdown" className="font-medium">
-            Sort By
+            <FaFilter />
           </label>
           <select
             id="dropdown"
