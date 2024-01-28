@@ -36,7 +36,7 @@ const Cart = () => {
   const totalPrice = subTotalPrice + gst;
   return (
     <>
-      <div className="px-8 py-4 w-full">
+      <div className="md:px-8 px-1 md:py-4 py-1 w-full">
         <h2 className="text-xl font-semibold">Shopping Cart</h2>
 
         {cartItems?.length === 0 ? (
@@ -55,16 +55,16 @@ const Cart = () => {
             </div>
           </>
         ) : (
-          <div className="flex gap-16">
+          <div className="flex-col md:flex md:gap-16 gap-2">
             <ul className="mt-2">
               {cartItems.map((product, index) => (
-                <li key={index} className="flex my-8 first:mt-4">
+                <li key={index} className="md:flex flex-col my-8 first:mt-4">
                   <img
                     src={product.imageUrl}
                     alt="product_image"
                     className="w-44"
                   />
-                  <div className="flex flex-col ml-6">
+                  <div className="flex flex-col md:ml-6 ml-0">
                     <span className="font-medium">{product.name}</span>
                     <span className="text-neutral-400 text-sm">
                       {product.description}
@@ -76,7 +76,7 @@ const Cart = () => {
                         className="bg-neutral-200 inline-flex items-center justify-center disabled:opacity-75 rounded-l"
                       >
                         <span className="material-symbols-outlined text-sm px-1">
-                          <MdDelete />
+                          remove
                         </span>
                       </button>
                       <span className="text-sm font-medium">{product.qty}</span>
@@ -85,25 +85,27 @@ const Cart = () => {
                         className="bg-neutral-200 inline-flex items-center justify-center rounded-r"
                       >
                         <span className="material-symbols-outlined text-sm px-1">
-                          <IoCart />
+                          add
                         </span>
                       </button>
                     </div>
-                    <span className="text-xl font-bold">₹ {product.price}</span>
                   </div>
-                  <button
-                    onClick={() => handleRemoveFromCart(product.id)}
-                    className="ml-4 self-start text-sm"
-                  >
-                    <MdDelete />
-                  </button>
+                  <div className="button_price flex justify-between items-center px-2">
+                    <span className="text-xl font-bold">₹ {product.price}</span>
+                    <button
+                      onClick={() => handleRemoveFromCart(product.id)}
+                      className="ml-0 self-start text-xl"
+                    >
+                      <MdDelete />
+                    </button>
+                  </div>
                 </li>
               ))}
             </ul>
-            <div className="bg-neutral-100  h-fit px-8 py-6 border border-neutral-400 rounded-sm">
+            <div className="bg-neutral-100 w-full h-fit md:px-8 px-1 md:py-6 py-1 border border-neutral-400 rounded-sm">
               <h4 className="text-xl font-semibold pb-2">Summary</h4>
-              <div className="grid grid-cols-2">
-                <div className="w-48">Subtotal</div>
+              <div className="grid grid-cols-2 w-full">
+                <div className="md:w-48 w-full">Subtotal</div>
                 <div>₹ {subTotalPrice}</div>
                 <div>GST(18%)</div>
                 <div>₹ {gst}</div>
