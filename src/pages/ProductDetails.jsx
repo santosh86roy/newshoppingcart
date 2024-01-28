@@ -14,7 +14,7 @@ export default function ProductDetails() {
 
   const cartItems = useSelector((state) => state.cart.cartItems);
 
-  const isAlreadyInTheCart = cartItems.some((item) => item.id === product.id)
+  const isAlreadyInTheCart = cartItems.some((item) => item.id === product.id);
   const handleAddToCart = (product) => {
     if (!isAlreadyInTheCart) {
       dispatch(addToCart(product));
@@ -39,17 +39,21 @@ export default function ProductDetails() {
 
   return (
     <>
-      <div className="px-12 py-6">
-        <div className="flex items-center">
+      <div className="md:px-12 px-0 md:py-6 py-0">
+        <div className="f md:flex flex-col items-center">
           <img
             src={product.imageUrl}
             alt="product_image"
             className="w-96 mt-4"
           />
-          <div className="flex flex-col ml-8 ">
-            <span className="text-2xl font-semibold">{product?.name}</span>
+          <div className="flex flex-col ml-8 md:mt-0 mt-2">
+            <span className="md:text-2xl text-xl  font-semibold">
+              {product?.name}
+            </span>
             <span className="text-neutral-500">{product?.description}</span>
-            <span className="text-4xl font-bold">₹ {product?.price}</span>
+            <span className="md:text-4xl text-2xl font-bold">
+              ₹ {product?.price}
+            </span>
             <div className="flex flex-col">
               {!cartItems.some((item) => item.id === product.id) ? (
                 <button
